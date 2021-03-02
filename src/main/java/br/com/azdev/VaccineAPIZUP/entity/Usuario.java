@@ -4,6 +4,7 @@ import org.hibernate.validator.constraints.br.CPF;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
@@ -12,11 +13,11 @@ public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @NotNull
+    @NotBlank
     private String nome;
-    @Email @NotNull @Column(unique = true)
+    @Email @NotBlank @Column(unique = true)
     private String email;
-    @CPF @NotNull @Column(unique = true)
+    @CPF @NotBlank @Column(unique = true)
     private String cpf;
     @NotNull
     private LocalDate dataNascimento;

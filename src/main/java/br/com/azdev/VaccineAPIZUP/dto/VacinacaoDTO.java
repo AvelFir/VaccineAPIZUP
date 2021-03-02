@@ -4,14 +4,15 @@ import br.com.azdev.VaccineAPIZUP.entity.Usuario;
 import br.com.azdev.VaccineAPIZUP.entity.Vacinacao;
 
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 public class VacinacaoDTO{
     private Long id;
-    @NotNull
+    @NotBlank
     private String nomeVacina;
-    @Email @NotNull
+    @Email @NotBlank
     private String emailUsuario;
     @NotNull
     private LocalDate dataAplicacao;

@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
@@ -13,9 +14,9 @@ import java.time.LocalDate;
 public class Vacinacao {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @NotNull
+    @NotBlank
     private String nomeVacina;
-    @Email @NotNull
+    @Email @NotBlank
     private String emailUsuario;
     @NotNull
     private LocalDate dataAplicacao;
