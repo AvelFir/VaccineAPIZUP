@@ -1,17 +1,13 @@
-package br.com.azdev.VaccineAPIZUP.entity;
+package br.com.azdev.VaccineAPIZUP.dto;
 
+import br.com.azdev.VaccineAPIZUP.entity.Usuario;
+import br.com.azdev.VaccineAPIZUP.entity.Vacinacao;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
-@Entity
-public class Vacinacao {
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class VacinacaoDTO{
     private Long id;
     @NotNull
     private String nomeVacina;
@@ -19,6 +15,26 @@ public class Vacinacao {
     private String emailUsuario;
     @NotNull
     private LocalDate dataAplicacao;
+
+    public VacinacaoDTO() {
+    }
+
+    public VacinacaoDTO(Vacinacao vacinacao) {
+        this.id = vacinacao.getId();
+        this.nomeVacina = vacinacao.getNomeVacina();
+        this.emailUsuario = vacinacao.getEmailUsuario();
+        this.dataAplicacao = vacinacao.getDataAplicacao();
+    }
+
+    public static Vacinacao converter(VacinacaoDTO vacinacaoDTO){
+        Vacinacao vacinacao = new Vacinacao();
+        vacinacao.setNomeVacina(vacinacaoDTO.getNomeVacina());
+        vacinacao.setEmailUsuario(vacinacaoDTO.getEmailUsuario());
+        vacinacao.setDataAplicacao(vacinacaoDTO.getDataAplicacao());
+        return vacinacao;
+    }
+
+    //Getters e Setters
 
     public Long getId() {
         return id;
