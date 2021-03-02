@@ -3,6 +3,7 @@ package br.com.azdev.VaccineAPIZUP.controller;
 import br.com.azdev.VaccineAPIZUP.dto.UsuarioDto;
 import br.com.azdev.VaccineAPIZUP.entity.Usuario;
 import br.com.azdev.VaccineAPIZUP.repository.UsuarioRepository;
+import br.com.azdev.VaccineAPIZUP.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -16,10 +17,10 @@ import javax.validation.Valid;
 public class UsuarioController {
 
     @Autowired
-    UsuarioRepository usuarioRepository;
+    UsuarioService usuarioService;
 
     @PostMapping
     public UsuarioDto create(@Valid @RequestBody UsuarioDto usuario){
-        return new UsuarioDto(usuarioRepository.save(UsuarioDto.converter(usuario)));
+        return usuarioService.create(UsuarioDto.converter(usuario));
     }
 }

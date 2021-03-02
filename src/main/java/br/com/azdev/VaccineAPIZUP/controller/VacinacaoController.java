@@ -1,7 +1,7 @@
 package br.com.azdev.VaccineAPIZUP.controller;
 
 import br.com.azdev.VaccineAPIZUP.dto.VacinacaoDTO;
-import br.com.azdev.VaccineAPIZUP.repository.VacinacaoRepository;
+import br.com.azdev.VaccineAPIZUP.service.VacinacaoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -14,12 +14,12 @@ import javax.validation.Valid;
 @RequestMapping("/vacinacao")
 public class VacinacaoController {
 
-    @Autowired
-    VacinacaoRepository vacinacaoRepository;
+   @Autowired
+    VacinacaoService vacinacaoService;
 
     @PostMapping()
     public VacinacaoDTO create(@Valid @RequestBody VacinacaoDTO vacinacao){
-        return new VacinacaoDTO(vacinacaoRepository.save(VacinacaoDTO.converter(vacinacao)));
+        return vacinacaoService.create(VacinacaoDTO.converter(vacinacao));
     }
 
 }
