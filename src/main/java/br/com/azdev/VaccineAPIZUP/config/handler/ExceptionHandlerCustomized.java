@@ -1,6 +1,6 @@
 package br.com.azdev.VaccineAPIZUP.config.handler;
 
-import br.com.azdev.VaccineAPIZUP.config.Response.Response.ErroValidacaoResponse;
+import br.com.azdev.VaccineAPIZUP.config.Response.ErroValidacaoResponse;
 import br.com.azdev.VaccineAPIZUP.config.Response.ExceptionResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
