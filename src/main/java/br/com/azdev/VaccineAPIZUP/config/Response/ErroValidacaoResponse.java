@@ -1,4 +1,4 @@
-package br.com.azdev.VaccineAPIZUP.config.Response.Response;
+package br.com.azdev.VaccineAPIZUP.config.Response;
 
 public class ErroValidacaoResponse{
 
