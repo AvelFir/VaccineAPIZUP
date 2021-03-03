@@ -11,8 +11,8 @@ public class VacinacaoService {
     @Autowired
     VacinacaoRepository vacinacaoRepository;
 
-    public VacinacaoDTO create(Vacinacao vacinacao){
-        return new VacinacaoDTO(vacinacaoRepository.save(vacinacao));
+    public Vacinacao create(Vacinacao vacinacao){
+        return vacinacaoRepository.save(vacinacao);
     }
 
 

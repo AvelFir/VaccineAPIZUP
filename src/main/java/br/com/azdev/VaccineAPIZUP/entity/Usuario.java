@@ -9,15 +9,19 @@ import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 @Entity
+@Table(uniqueConstraints ={
+    @UniqueConstraint(columnNames = "email", name = "email_uk"),
+    @UniqueConstraint(columnNames = "cpf", name = "cpf_uk")}
+)
 public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotBlank
     private String nome;
-    @Email @NotBlank @Column(unique = true)
+    @Email @NotBlank
     private String email;
-    @CPF @NotBlank @Column(unique = true)
+    @CPF @NotBlank
     private String cpf;
     @NotNull
     private LocalDate dataNascimento;

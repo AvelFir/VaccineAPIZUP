@@ -1,10 +1,7 @@
 package br.com.azdev.VaccineAPIZUP.entity;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -16,8 +13,8 @@ public class Vacinacao {
     private Long id;
     @NotBlank
     private String nomeVacina;
-    @Email @NotBlank
-    private String emailUsuario;
+    @NotNull @ManyToOne @JoinColumn(name = "user_id")
+    private Usuario usuario;
     @NotNull
     private LocalDate dataAplicacao;
 
@@ -40,12 +37,12 @@ public class Vacinacao {
         this.nomeVacina = nomeVacina;
     }
 
-    public String getEmailUsuario() {
-        return emailUsuario;
+    public Usuario getUsuario() {
+        return usuario;
     }
 
-    public void setEmailUsuario(String emailUsuario) {
-        this.emailUsuario = emailUsuario;
+    public void setUsuario(Usuario usuarioId) {
+        this.usuario = usuarioId;
     }
 
     public LocalDate getDataAplicacao() {

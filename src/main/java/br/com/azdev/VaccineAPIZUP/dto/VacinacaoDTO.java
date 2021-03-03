@@ -12,8 +12,8 @@ public class VacinacaoDTO{
     private Long id;
     @NotBlank
     private String nomeVacina;
-    @Email @NotBlank
-    private String emailUsuario;
+    @NotBlank @Email
+    private String usuarioEmail;
     @NotNull
     private LocalDate dataAplicacao;
 
@@ -23,14 +23,14 @@ public class VacinacaoDTO{
     public VacinacaoDTO(Vacinacao vacinacao) {
         this.id = vacinacao.getId();
         this.nomeVacina = vacinacao.getNomeVacina();
-        this.emailUsuario = vacinacao.getEmailUsuario();
+        this.usuarioEmail = vacinacao.getUsuario().getEmail();
         this.dataAplicacao = vacinacao.getDataAplicacao();
     }
 
-    public static Vacinacao converter(VacinacaoDTO vacinacaoDTO){
+    public static Vacinacao converter(VacinacaoDTO vacinacaoDTO, Usuario usuario){
         Vacinacao vacinacao = new Vacinacao();
         vacinacao.setNomeVacina(vacinacaoDTO.getNomeVacina());
-        vacinacao.setEmailUsuario(vacinacaoDTO.getEmailUsuario());
+        vacinacao.setUsuario(usuario);
         vacinacao.setDataAplicacao(vacinacaoDTO.getDataAplicacao());
         return vacinacao;
     }
@@ -53,12 +53,12 @@ public class VacinacaoDTO{
         this.nomeVacina = nomeVacina;
     }
 
-    public String getEmailUsuario() {
-        return emailUsuario;
+    public String getUsuarioEmail() {
+        return usuarioEmail;
     }
 
-    public void setEmailUsuario(String emailUsuario) {
-        this.emailUsuario = emailUsuario;
+    public void setUsuarioEmail(String usuarioEmail) {
+        this.usuarioEmail = usuarioEmail;
     }
 
     public LocalDate getDataAplicacao() {
