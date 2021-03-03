@@ -21,6 +21,9 @@ public class Vacinacao {
     @NotNull
     private LocalDate dataAplicacao;
 
+    //getters e setters
+
+
     public Long getId() {
         return id;
     }

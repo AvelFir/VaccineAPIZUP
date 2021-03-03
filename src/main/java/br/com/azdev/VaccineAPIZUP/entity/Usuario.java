@@ -22,6 +22,8 @@ public class Usuario {
     @NotNull
     private LocalDate dataNascimento;
 
+    //getters e setters
+
     public Long getId() {
         return id;
     }

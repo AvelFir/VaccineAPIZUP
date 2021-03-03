@@ -1,8 +1,6 @@
 package br.com.azdev.VaccineAPIZUP.controller;
 
 import br.com.azdev.VaccineAPIZUP.dto.UsuarioDto;
-import br.com.azdev.VaccineAPIZUP.entity.Usuario;
-import br.com.azdev.VaccineAPIZUP.repository.UsuarioRepository;
 import br.com.azdev.VaccineAPIZUP.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

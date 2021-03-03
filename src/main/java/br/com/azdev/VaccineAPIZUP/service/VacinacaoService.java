@@ -12,7 +12,8 @@ public class VacinacaoService {
     VacinacaoRepository vacinacaoRepository;
 
     public VacinacaoDTO create(Vacinacao vacinacao){
-
         return new VacinacaoDTO(vacinacaoRepository.save(vacinacao));
     }
+
+
 }
