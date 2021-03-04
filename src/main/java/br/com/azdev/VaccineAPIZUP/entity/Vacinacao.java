@@ -19,7 +19,6 @@ public class Vacinacao {
 
     //getters e setters
 
-
     public Long getId() {
         return id;
     }
