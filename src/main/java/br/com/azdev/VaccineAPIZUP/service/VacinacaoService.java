@@ -1,6 +1,5 @@
 package br.com.azdev.VaccineAPIZUP.service;
 
-import br.com.azdev.VaccineAPIZUP.dto.VacinacaoDTO;
 import br.com.azdev.VaccineAPIZUP.entity.Vacinacao;
 import br.com.azdev.VaccineAPIZUP.repository.VacinacaoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
