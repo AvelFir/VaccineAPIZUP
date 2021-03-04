@@ -5,9 +5,12 @@ import br.com.azdev.VaccineAPIZUP.service.UsuarioService;
 import br.com.azdev.VaccineAPIZUP.service.VacinacaoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.util.UriComponentsBuilder;
 
 import javax.validation.Valid;
+import java.net.URI;
 
 @RestController
 @RequestMapping("/vacinacao")
@@ -20,10 +23,10 @@ public class VacinacaoController {
     UsuarioService usuarioService;
 
     @PostMapping()
-    @ResponseStatus(HttpStatus.CREATED)
-    public VacinacaoDTO create(@Valid @RequestBody VacinacaoDTO vacinacaoDTO){
+    public ResponseEntity<VacinacaoDTO> create(@Valid @RequestBody VacinacaoDTO vacinacaoDTO, UriComponentsBuilder uriBuilder){
         Usuario usuario = usuarioService.findByEmail(vacinacaoDTO.getUsuarioEmail());
-        System.out.println(vacinacaoDTO.getUsuarioEmail() + vacinacaoDTO.getNomeVacina() + vacinacaoDTO.getDataAplicacao());
-        return new VacinacaoDTO(vacinacaoService.create(VacinacaoDTO.converter(vacinacaoDTO, usuario)));
+        VacinacaoDTO vacinacao = new  VacinacaoDTO(vacinacaoService.create(VacinacaoDTO.converter(vacinacaoDTO, usuario)));
+        URI uri = uriBuilder.path("/vacinacao/{id}").buildAndExpand(vacinacao.getId()).toUri();
+        return ResponseEntity.created(uri).body(vacinacao);
     }
 }
