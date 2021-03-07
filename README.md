@@ -24,7 +24,7 @@ O desafio é uma api simples apenas com o C do CRUD, ou seja apenas a criação 
 
 Segue abaixo o link do blog explicando como fiz a implementação:
 
-
+https://docs.google.com/document/d/1RkA_LAhKf_Jxu0pNNl2HvlBWkYkcIL2K4yio9WhgVvM/edit?usp=sharing
 
 ## Requisições HTTP
 

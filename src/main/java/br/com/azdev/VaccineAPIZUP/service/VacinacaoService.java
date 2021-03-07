@@ -7,12 +7,11 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class VacinacaoService {
+
     @Autowired
     VacinacaoRepository vacinacaoRepository;
 
     public Vacinacao create(Vacinacao vacinacao){
         return vacinacaoRepository.save(vacinacao);
     }
-
-
 }

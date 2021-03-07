@@ -23,5 +23,4 @@ public class UsuarioService {
                 .orElseThrow(() -> new EntityNotFoundException("Usuario não encontrado")));
         return entity.get();
     }
-
 }

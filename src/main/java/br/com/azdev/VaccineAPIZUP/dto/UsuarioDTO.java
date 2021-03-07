@@ -3,31 +3,26 @@ package br.com.azdev.VaccineAPIZUP.dto;
 import br.com.azdev.VaccineAPIZUP.entity.Usuario;
 import org.hibernate.validator.constraints.br.CPF;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
-public class UsuarioDto {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class UsuarioDTO {
+
     private Long id;
     @NotBlank
     private String nome;
-    @Email @NotBlank @Column(unique = true)
+    @Email @NotBlank
     private String email;
-    @CPF @NotBlank @Column(unique = true)
+    @CPF @NotBlank
     private String cpf;
     @NotNull
     private LocalDate dataNascimento;
 
-    public UsuarioDto() {}
+    public UsuarioDTO() {}
 
-    public UsuarioDto(Usuario usuario) {
+    public UsuarioDTO(Usuario usuario) {
         this.id = usuario.getId();
         this.nome = usuario.getNome();
         this.email = usuario.getEmail();
@@ -35,7 +30,7 @@ public class UsuarioDto {
         this.dataNascimento = usuario.getDataNascimento();
     }
 
-    public static Usuario converter(UsuarioDto usuarioDto){
+    public static Usuario converter(UsuarioDTO usuarioDto){
         Usuario usuario = new Usuario();
         usuario.setNome(usuarioDto.getNome());
         usuario.setEmail(usuarioDto.getEmail());

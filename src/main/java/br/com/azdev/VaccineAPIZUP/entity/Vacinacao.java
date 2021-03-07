@@ -12,7 +12,7 @@ public class Vacinacao {
     private Long id;
     @NotBlank
     private String nomeVacina;
-    @NotNull @ManyToOne @JoinColumn(name = "user_id")
+    @NotNull @ManyToOne @JoinColumn(name = "usuario_id")
     private Usuario usuario;
     @NotNull
     private LocalDate dataAplicacao;

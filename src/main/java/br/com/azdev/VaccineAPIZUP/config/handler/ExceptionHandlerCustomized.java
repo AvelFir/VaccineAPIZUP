@@ -26,7 +26,7 @@ public class ExceptionHandlerCustomized {
 
     @ExceptionHandler({DataIntegrityViolationException.class})
     @ResponseStatus(code = HttpStatus.BAD_REQUEST)
-    public ErroValidacaoResponse handleAll(DataIntegrityViolationException ex, WebRequest webRequest) {
+    public ErroValidacaoResponse handleDataIntegrityViolationException(DataIntegrityViolationException ex, WebRequest webRequest) {
         String message = ex.getMessage();
         String campo = webRequest.getDescription(false);
         if (ex.getMessage().contains("email_uk")) {
@@ -40,10 +40,9 @@ public class ExceptionHandlerCustomized {
         return new ErroValidacaoResponse(campo,message);
     }
 
-
     @ExceptionHandler(MethodArgumentNotValidException.class)
     @ResponseStatus(code = HttpStatus.BAD_REQUEST)
-    public List<ErroValidacaoResponse> handle(MethodArgumentNotValidException exception){
+    public List<ErroValidacaoResponse> handleMethodArgumentNotValidException(MethodArgumentNotValidException exception){
         List<ErroValidacaoResponse> dto = new ArrayList<>();
         List<FieldError> fieldErrors = exception.getBindingResult().getFieldErrors();
         fieldErrors.forEach(e -> {
@@ -53,7 +52,6 @@ public class ExceptionHandlerCustomized {
         });
         return dto;
     }
-
     @ExceptionHandler({Exception.class})
     @ResponseStatus(code = HttpStatus.INTERNAL_SERVER_ERROR)
     public ExceptionResponse handleAll(Exception ex, WebRequest webRequest){

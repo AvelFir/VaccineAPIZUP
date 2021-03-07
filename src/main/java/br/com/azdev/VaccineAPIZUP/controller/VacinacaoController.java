@@ -29,3 +29,4 @@ public class VacinacaoController {
         return ResponseEntity.created(uri).body(vacinacao);
     }
 }
+
